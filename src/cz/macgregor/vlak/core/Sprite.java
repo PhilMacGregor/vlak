@@ -1,13 +1,12 @@
 package cz.macgregor.vlak.core;
 
-import java.awt.Image;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
 
 public enum Sprite {
 
-  LOCO("loco.png"), VAGON1("vagon.png");
+  LOCO("loco.png"), VAGON1("vagon.png"), PASSENGER1("gentleman.png");
 
   /** the icon encapsulated by the sprite. */
   private final ImageIcon icon;

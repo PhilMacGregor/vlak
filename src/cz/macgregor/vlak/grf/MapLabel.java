@@ -28,7 +28,7 @@ public class MapLabel extends JLabel {
     this.map = map;
     this.setPreferredSize(new Dimension(map.getWidth() * fieldWidth, map.getHeight() * fieldHeight));
     this.setOpaque(true);
-    this.setBackground(Color.BLACK);
+    this.setBackground(new Color(34, 124, 49));
   }
 
   /**
