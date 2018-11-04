@@ -12,49 +12,50 @@ import cz.macgregor.vlak.core.GameMap;
 import cz.macgregor.vlak.core.GameObject;
 
 public class MapLabel extends JLabel {
+	private static final long serialVersionUID = 4363099148371837800L;
 
-  private GameMap map;
+	private GameMap map;
 
-  private int fieldWidth;
+	private int fieldWidth;
 
-  private int fieldHeight;
+	private int fieldHeight;
 
-  public MapLabel(GameMap map, int fieldWidth, int fieldHeight) {
-    super();
+	public MapLabel(GameMap map, int fieldWidth, int fieldHeight) {
+		super();
 
-    this.fieldWidth = fieldWidth;
-    this.fieldHeight = fieldHeight;
+		this.fieldWidth = fieldWidth;
+		this.fieldHeight = fieldHeight;
 
-    this.map = map;
-    this.setPreferredSize(new Dimension(map.getWidth() * fieldWidth, map.getHeight() * fieldHeight));
-    this.setOpaque(true);
-    this.setBackground(new Color(34, 124, 49));
-  }
+		this.map = map;
+		this.setPreferredSize(new Dimension(map.getWidth() * fieldWidth, map.getHeight() * fieldHeight));
+		this.setOpaque(true);
+		this.setBackground(new Color(34, 124, 49));
+	}
 
-  /**
-   * @param map
-   *          the map to set
-   */
-  public void setMap(GameMap map) {
-    this.map = map;
-  }
+	/**
+	 * @param map
+	 *            the map to set
+	 */
+	public void setMap(GameMap map) {
+		this.map = map;
+	}
 
-  @Override
-  protected void paintComponent(Graphics g) {
-    super.paintComponent(g);
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
 
-    for (int i = 0; i < map.getWidth(); i++) {
-      for (int j = 0; j < map.getHeight(); j++) {
-        Field fld = map.getMap()[i][j];
-        for (List<GameObject> layer : fld.getContents().values()) {
-          for (GameObject obj : layer) {
+		for (int i = 0; i < map.getWidth(); i++) {
+			for (int j = 0; j < map.getHeight(); j++) {
+				Field fld = map.getMap()[i][j];
+				for (List<GameObject> layer : fld.getContents().values()) {
+					for (GameObject obj : layer) {
 
-            g.drawImage(obj.getImage(), i * fieldWidth, j * fieldHeight, null);
+						g.drawImage(obj.getImage(), i * fieldWidth, j * fieldHeight, null);
 
-          }
-        }
-      }
-    }
-  }
+					}
+				}
+			}
+		}
+	}
 
 }
