@@ -15,41 +15,41 @@ import cz.macgregor.vlak.grf.MapLabel;
 
 public class VlakMain {
 
-	public static void main(String[] args) {
-		int width = 32;
-		int height = 16;
-		int fieldWidth = 40;
-		int fieldHeight = 40;
+  public static void main(String[] args) {
+    int width = 32;
+    int height = 16;
+    int fieldWidth = 40;
+    int fieldHeight = 40;
 
-		GameMap map = new GameMap(width, height);
+    GameMap map = new GameMap(width, height);
 
-		Game game = new Game(map);
-		Inputs inputs = new Inputs();
-		Outputs outputs = new Outputs();
+    Game game = new Game(map);
+    Inputs inputs = new Inputs();
+    Outputs outputs = new Outputs();
 
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Vlak");
+    JFrame frame = new JFrame();
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setTitle("Vlak");
 
-		MapLabel label = new MapLabel(map, fieldWidth, fieldHeight);
-		frame.add(label, BorderLayout.CENTER);
-		label.addKeyListener(new KeyInputsListener(inputs));
-		label.setFocusable(true);
+    MapLabel label = new MapLabel(map, fieldWidth, fieldHeight);
+    frame.add(label, BorderLayout.CENTER);
+    label.addKeyListener(new KeyInputsListener(inputs));
+    label.setFocusable(true);
 
-		frame.pack();
-		Utils.moveFrameToCenter(frame);
-		frame.setVisible(true);
+    frame.pack();
+    Utils.moveFrameToCenter(frame);
+    frame.setVisible(true);
 
-		TimerTask gameTick = new TimerTask() {
-			@Override
-			public void run() {
-				game.tick(map, inputs, outputs);
-				frame.repaint();
-			}
-		};
-		Timer tiktak = new Timer();
-		tiktak.scheduleAtFixedRate(gameTick, 0, 50);
+    TimerTask gameTick = new TimerTask() {
+      @Override
+      public void run() {
+        game.tick(map, inputs, outputs);
+        frame.repaint();
+      }
+    };
+    Timer tiktak = new Timer();
+    tiktak.scheduleAtFixedRate(gameTick, 0, 150);
 
-	}
+  }
 
 }
